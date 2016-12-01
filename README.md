@@ -21,7 +21,7 @@ Steps taken to install ubuntu on dell 7559 with nvidia gpu
 4.Make the drive in pendrive linux
 
 
-a.NOTE: I had the iso on an external hard disk. Insert the hard disk and pendrive in USBs with the same speed to avoid error along the lines of: Input output error while copying files Replace hard disk, place in cool area, speed different or too fast  
+    a.NOTE: I had the iso on an external hard disk. Insert the hard disk and pendrive in USBs with the same speed to avoid error along the lines of: Input output error while copying files Replace hard disk, place in cool area, speed different or too fast  
 
   
 5. Restart laptop and press F12
@@ -32,51 +32,59 @@ a.NOTE: I had the iso on an external hard disk. Insert the hard disk and pendriv
 
 8. Select the pendrive in the UEFI options
 
-a.NOTE: Don’t change the port from which the USB was written to a slower or faster port. Causes the error along the lines:  Input output error while copying files Replace hard disk, place in cool area, speed different or too fast
+       a.NOTE: Don’t change the port from which the USB was written to a slower or faster port. Causes the error along the lines:     Input output error while copying files Replace hard disk, place in cool area, speed different or too fast
 
 
- 9. Highlght TRY ubuntu and press e
+9. Highlght TRY ubuntu and press e
 
- 10. After quick splash add acpi=off OR nomodeset I think I did the first one 
+10. After quick splash add acpi=off OR nomodeset I think I did the first one 
 
- 11. Ubuntu desktop starts up 
+11. Ubuntu desktop starts up 
 
-      10. Click on install ubuntu
+12. Click on install ubuntu
 
-      11. Fill in all requirements
+      13. Fill in all requirements
 
-      12.  When asked for third party software ALLOW and CHECK TURN OFF SECURE BOOT
+      14.  When asked for third party software ALLOW and CHECK TURN OFF SECURE BOOT
 
-      13. Let the installation complete . IF you get any error like input output error check step 4 and step 8. If none work try making the USB with RUFUS instead of pendrive linux.
+      15. Let the installation complete . IF you get any error like input output error check step 4 and step 8. If none work try making the USB with RUFUS instead of pendrive linux.
 
-14. Installation complete and reboot.
+16. Installation complete and reboot.
 
-15. If it directly goes to UBUNTU without showing the grub screen
+17. If it directly goes to UBUNTU without showing the grub screen
 
-16. In ubuntu go to additional drivers I switched it from the noveau to nvidia
+18. In ubuntu go to additional drivers I switched it from the noveau to nvidia
 
-17. After this the while rebooting the grub menu disappeared
+19. After this the while rebooting the grub menu disappeared
 
-18. To fix this boot into UBUNTU ( black screen shows up hold down shift key this is supposed to help)
+20. To fix this boot into UBUNTU ( black screen shows up hold down shift key this is supposed to help)
 
-19. Now open the command prompt 
+21. Now open the command prompt 
 
-20. Run sudo gedit /etc/default/grub
+22. Run sudo gedit /etc/default/grub
 
-21. Make sure the HIDDEN are commented and go to the resolution line with vbiedit
+23. Make sure the HIDDEN are commented and go to the resolution line with vbiedit
 
-22. This line is commented 
+24. This line is commented 
 
-23. To find the resolution of your screen open another terminal and run xdpyinfo  | grep dimensions 1920x1080 for me
+25. To find the resolution of your screen open another terminal and run xdpyinfo  | grep dimensions 1920x1080 for me
 
-24. Uncomment the line in the grub file and replace it with the output dimensions
+26. Uncomment the line in the grub file and replace it with the output dimensions
 
-25. Sava and Close
+27. Save and Close
 
-26. Run sudo update-grub
+28. Run sudo update-grub
 
-27. Now shutdown and reboot
+29. Now shutdown and reboot
 
-28. You should have the grub menu present now.
+29. You should have the grub menu present now.
 
 HOPE THIS WORKS
+
+
+If after installation and you ever get the error:
+Unable to unlock dpkg/var/lock another process is using it 
+Many sites online will recommend to delete the file and run reconfig dkg -a or something similar
+Instead restart and go to your boot menu and make sure the secure boot is not on. If its on turn it off.
+Now boot into Ubuntu and run sudo apt-get update should work properly 
+and now if it is suggested to you, you may run the dpkg --a config command.
